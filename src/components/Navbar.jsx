@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/-nav-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [language, setLanguage] = useState("English");
@@ -57,15 +58,14 @@ const Navbar = () => {
       {/* Navigation Menu */}
       <ul className="flex space-x-6 text-white font-semibold mx-4">
         <li>
-          <a
-            href="#beranda"
-            className={`hover:text-gray-200 ${
-              activeMenu === "beranda" ? "font-bold" : "font-normal"
-            }`}
-            onClick={() => handleMenuClick("beranda")}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+            }
           >
             Beranda
-          </a>
+          </NavLink>
         </li>
         <li className="relative group">
           <button className="flex items-center hover:text-blue-500 font-light transition-colors duration-300">
@@ -73,7 +73,7 @@ const Navbar = () => {
           </button>
 
           {/* Dropdown Content */}
-          <ul className="absolute mt-2 w-52 bg-[rgba(24,50,98,0.5)] backdrop-blur-lg text-white shadow-lg rounded-lg py-2 hidden group-hover:block transition-all duration-300">
+          <ul className="absolute mt-2 w-52 bg-[rgba(24,50,98,0.5)] backdrop-blur-lg text-white shadow-lg rounded-lg py-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
             <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg transition-colors duration-200">
               <a href="#kolam">🎣 Kolam Pancing</a>
             </li>
@@ -90,15 +90,14 @@ const Navbar = () => {
         </li>
 
         <li>
-          <a
-            href="#lomba"
-            className={`hover:text-gray-200 ${
-              activeMenu === "lomba" ? "font-bold" : "font-normal"
-            }`}
-            onClick={() => handleMenuClick("lomba")}
+          <NavLink
+            to="/lomba"
+            className={({ isActive }) =>
+              `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+            }
           >
             Lomba
-          </a>
+          </NavLink>
         </li>
         <li>
           <a
@@ -116,7 +115,7 @@ const Navbar = () => {
             href="#reservasi"
             className={` text-white font-light px-4 py-2 rounded-3xl  transition duration-300 ${
               isScrolled
-                ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98, 0.5)]"
+                ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98,1.0)]"
                 : "bg-[rgba(24,50,98,0.8)] hover:bg-[rgba(24,50,98,0.5)]"
             }`}
           >

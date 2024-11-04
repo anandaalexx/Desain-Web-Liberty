@@ -1,22 +1,15 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Facility from "./components/Facility";
-import Gallery from "./components/Gallery";
-import Review from "./components/Review";
-import QuickRes from "./components/QuickRes";
+import { Routes, Route } from "react-router-dom";
+import Beranda from "./pages/Beranda";
+import Lomba from "./pages/Lomba";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Hero />
-      <About />
-      <Facility />
-      <Gallery />
-      <Review />
-      <QuickRes />
+      <Routes>
+        <Route path="/" Component={Beranda} />
+        <Route path="/lomba" Component={Lomba} />
+      </Routes>
     </div>
   );
 }

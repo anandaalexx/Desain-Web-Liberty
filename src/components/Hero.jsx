@@ -30,8 +30,8 @@ const Hero = () => {
       <div className="absolute bottom-10 left-4 border rounded-full border-white text-white px-4 py-1 ml-16">
         <p className="text-sm">
           {" "}
-          <FontAwesomeIcon icon={faLocationDot} className="mr-1" /> Kutai
-          Kartanegara, Indonesia
+          <FontAwesomeIcon icon={faLocationDot} className="mr-1" /> Samboja,
+          Kutai Kartanegara
         </p>
       </div>
     </div>
