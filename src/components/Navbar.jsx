@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/-nav-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [language, setLanguage] = useState("English");
@@ -14,7 +14,7 @@ const Navbar = () => {
   // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 750);
+      setIsScrolled(window.scrollY > 700);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Menu */}
-        <ul className="flex space-x-6 text-white font-semibold mx-4">
+        <ul className="flex space-x-6 text-white font-semibold mx-4 my-2">
           <li>
             <NavLink
               to="/"
@@ -116,7 +116,7 @@ const Navbar = () => {
               href="#reservasi"
               className={` text-white font-light px-4 py-2 rounded-3xl  transition duration-300 ${
                 isScrolled
-                  ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98,1.0)]"
+                  ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98,1)]"
                   : "bg-[rgba(24,50,98,0.8)] hover:bg-[rgba(24,50,98,0.5)]"
               }`}
             >
@@ -126,7 +126,7 @@ const Navbar = () => {
         </ul>
 
         {/* Language Dropdown */}
-        <div className="relative group">
+        <div className="relative group mt-3">
           <button
             onClick={toggleLanguageDropdown}
             className="flex items-center text-white font-semibold"
@@ -155,7 +155,7 @@ const Navbar = () => {
 
           {/* Dropdown Menu */}
           {isLanguageOpen && (
-            <ul className="absolute text-white right-0 mt-2 bg-[rgba(24,50,98,0.2)] backdrop-blur-lg shadow-lg rounded-lg">
+            <ul className="absolute left-0 right-0 text-white mt-2 w-[135px] bg-[rgba(24,50,98,0.2)] backdrop-blur-lg shadow-lg mx-auto rounded-lg">
               <li
                 onClick={() => handleLanguageChange("en")}
                 className="px-4 py-2 hover:bg-[rgba(24,50,98,0.8)] cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg flex items-center"
