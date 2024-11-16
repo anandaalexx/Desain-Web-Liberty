@@ -7,6 +7,7 @@ import Gallery from "../components/Gallery";
 import Review from "../components/Review";
 import QuickRes from "../components/QuickRes";
 import Footer from "../components/Footer";
+import Funfact from "../components/Funfact";
 
 function Beranda() {
   return (
@@ -18,6 +19,7 @@ function Beranda() {
       <Gallery />
       <Review />
       <QuickRes />
+      <Funfact />
       <Footer />
     </div>
   );

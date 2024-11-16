@@ -22,25 +22,33 @@ const QuickRes = () => {
 
   const renderTabContent = () => {
     return (
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {/* Kolom 1: Date Picker */}
         <div className="flex items-center justify-center">
           <div className="relative">
             <DatePicker
               selected={startDate}
               onChange={handleDateChange}
-              className="px-4 py-2 border rounded-md opacity-0" // Menyembunyikan input
+              className="absolute opacity-0" // Sembunyikan input bawaan
               placeholderText="Pilih tanggal"
-              customInput={
-                <button className="text-lg p-2 text-[rgba(24,50,98,1)]  border-none">
-                  <FontAwesomeIcon
-                    icon={faCalendarDays}
-                    size="2x"
-                    className="text-[rgba(24,50,98,1)]"
-                  />
-                </button>
-              } // Ikon Font Awesome
             />
+            <button
+              onClick={(e) => e.currentTarget.previousSibling.focus()} // Fokuskan ke DatePicker
+              className="flex items-center p-3 text-[rgba(24,50,98,1)] rounded-md focus:outline-none"
+            >
+              <FontAwesomeIcon
+                icon={faCalendarDays}
+                size="2x"
+                className="text-[rgba(24,50,98,1)] mr-2" // Menambahkan margin kanan untuk memberi jarak antara ikon dan teks
+              />
+              <span className="text-lg">Pilih Tanggal</span>{" "}
+              {/* Teks "Pilih Tanggal" */}
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                size="lg"
+                className="text-[rgba(24,50,98,1)] ml-2" // Menambahkan margin kiri untuk memberi jarak antara teks dan ikon chevron
+              />
+            </button>
           </div>
         </div>
 
@@ -51,6 +59,10 @@ const QuickRes = () => {
               ? `Tanggal yang dipilih: ${startDate.toLocaleDateString()}`
               : "Tanggal belum dipilih"}
           </p>
+        </div>
+
+        <div className="flex items-center justify-center">
+          <div className="h-3/4 border-l-2 border-[rgba(24,50,98,1)]"></div>
         </div>
 
         {/* Kolom 3: Tombol */}
@@ -87,9 +99,8 @@ const QuickRes = () => {
               className="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-t-md bg-white/50"
               role="list"
             >
-              {/* Highlight sliding background with padding */}
               <div
-                className={`absolute w-[40%] h-[70%] bg-[rgba(24,50,98,1)] rounded-md transition-all duration-300 ease-in-out transform ${
+                className={`absolute w-[40%] h-[70%] bg-[rgba(24,50,98,1)] rounded-md transition-all duration-500 ease-in-out transform ${
                   activeTab === "dashboard"
                     ? "translate-x-3"
                     : activeTab === "settings"
@@ -98,7 +109,6 @@ const QuickRes = () => {
                 }`}
                 style={{ top: "15%" }}
               />
-
               <li className="z-30 flex-auto text-center relative">
                 <button
                   onClick={() => handleTabClick("dashboard")}
@@ -130,7 +140,10 @@ const QuickRes = () => {
             </ul>
           </div>
           <div className="-mt-4">
-            <div className="p-3 bg-white rounded-b-md rounded-tr-md shadow-md mt-4">
+            <div
+              className="p-3 bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-xl shadow-md mt-4"
+              style={{ background: "rgba(255, 255, 255, 0.8)" }}
+            >
               {renderTabContent()}
             </div>
           </div>
