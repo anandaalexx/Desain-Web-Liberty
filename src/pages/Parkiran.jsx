@@ -10,7 +10,7 @@ import SectionImage1 from "../assets/hero.jpg"; // Placeholder image for the sec
 import SectionImage2 from "../assets/hero.jpg";
 import SectionImage3 from "../assets/hero.jpg";
 
-function Penyewaan() {
+function Parkir() {
   return (
     <div className="bg-white min-h-screen">
       <Navbar />
@@ -24,14 +24,28 @@ function Penyewaan() {
       {/* Main Content Section */}
       <main className="max-w-7xl mx-auto py-8 px-4 space-y-10">
         {/* Penyewaan Alat Pancing Section */}
-        <section id="sewa" className="bg-white shadow-md overflow-hidden flex">
+
+        {/* Section: Informasi Kolam Pemancingan */}
+        <section className="bg-[#183262] shadow-md overflow-hidden flex">
           <img
-            src={HeroImage}
-            alt="Penyewaan alat pancing tersedia di lokasi"
+            src={SectionImage1}
+            alt="Kolam Pemancingan di Fasilitas Liberty"
             className="w-1/2 object-cover"
           />
           <div className="p-6 flex-1">
-            <h2 className="text-4xl font-bold mb-2">Sedia Alat Pancing</h2>
+            <h2 className="text-4xl font-bold mb-2 text-white">Kolam Ikan 1</h2>
+            <p className="text-lg text-gray-300">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </section>
+
+        <section id="sewa" className="bg-white shadow-md overflow-hidden flex">
+          <div className="p-6 flex-1">
+            <h2 className="text-4xl font-bold mb-2">Kolam Ikan 2</h2>
             <p className="text-lg text-gray-700">
               Menyediakan beragam alat pancing lengkap untuk memenuhi kebutuhan
               Anda selama memancing di kolam kami. Harga terjangkau dan kualitas
@@ -39,38 +53,23 @@ function Penyewaan() {
               menyenangkan.
             </p>
           </div>
-        </section>
-
-        {/* Section: Informasi Kolam Pemancingan */}
-        <section className="bg-[#183262] shadow-md overflow-hidden flex">
-          <div className="p-6 flex-1">
-            <h2 className="text-4xl font-bold mb-2 text-white">
-              Kolam Pemancingan
-            </h2>
-            <p className="text-lg text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
           <img
-            src={SectionImage1}
-            alt="Kolam Pemancingan di Fasilitas Liberty"
+            src={HeroImage}
+            alt="Penyewaan alat pancing tersedia di lokasi"
             className="w-1/2 object-cover"
           />
         </section>
 
         {/* Section: Resto */}
-        <section className="bg-white shadow-md overflow-hidden flex">
+        <section className="bg-[#183262] shadow-md overflow-hidden flex">
           <img
             src={SectionImage2}
-            alt="Resto di Fasilitas Liberty"
+            alt="Kolam Pemancingan di Fasilitas Liberty"
             className="w-1/2 object-cover"
           />
           <div className="p-6 flex-1">
-            <h2 className="text-4xl font-bold mb-2">Resto</h2>
-            <p className="text-lg text-gray-700">
+            <h2 className="text-4xl font-bold mb-2 text-white">Kolam Ikan 3</h2>
+            <p className="text-lg text-gray-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -79,20 +78,19 @@ function Penyewaan() {
           </div>
         </section>
 
-        {/* Section: Parkiran */}
-        <section className="bg-[#183262] shadow-md overflow-hidden flex">
+        <section id="sewa" className="bg-white shadow-md overflow-hidden flex">
           <div className="p-6 flex-1">
-            <h2 className="text-4xl font-bold mb-2 text-white">Parkiran</h2>
-            <p className="text-lg text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+            <h2 className="text-4xl font-bold mb-2">Kolam Ikan 4</h2>
+            <p className="text-lg text-gray-700">
+              Menyediakan beragam alat pancing lengkap untuk memenuhi kebutuhan
+              Anda selama memancing di kolam kami. Harga terjangkau dan kualitas
+              alat yang baik, menjadikan pengalaman memancing Anda lebih
+              menyenangkan.
             </p>
           </div>
           <img
             src={SectionImage3}
-            alt="Parkiran di Fasilitas Liberty"
+            alt="Penyewaan alat pancing tersedia di lokasi"
             className="w-1/2 object-cover"
           />
         </section>
@@ -104,4 +102,4 @@ function Penyewaan() {
   );
 }
 
-export default Penyewaan;
+export default Parkir;

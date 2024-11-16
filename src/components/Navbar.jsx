@@ -65,26 +65,48 @@ const Navbar = () => {
             {/* Dropdown Content */}
             <ul className="absolute mt-2 w-52 bg-[rgba(24,50,98,0.5)] backdrop-blur-lg text-white shadow-lg rounded-lg py-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
               <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg transition-colors duration-200">
-                <Link to="#kolam">🎣 Kolam Pancing</Link>
+                <NavLink
+                  to="/kolam"
+                  className={({ isActive }) =>
+                    `hover:text-gray-200 ${
+                      isActive ? "font-bold" : "font-normal"
+                    }`
+                  }
+                >
+                  🎣 Kolam
+                </NavLink>
               </li>
               <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg">
                 <NavLink
                   to="/restoran"
                   className={({ isActive }) =>
-                    `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+                    `hover:text-gray-200 ${
+                      isActive ? "font-bold" : "font-normal"
+                    }`
                   }
                 >
                   🍽️ Resto
                 </NavLink>
               </li>
               <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg transition-colors duration-200">
-                <Link to="#parkir">🚗 Parkiran</Link>
+                <NavLink
+                  to="/parkir"
+                  className={({ isActive }) =>
+                    `hover:text-gray-200 ${
+                      isActive ? "font-bold" : "font-normal"
+                    }`
+                  }
+                >
+                  🚗 Parkir
+                </NavLink>
               </li>
               <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer rounded-lg transition-colors duration-200">
                 <NavLink
                   to="/penyewaan"
                   className={({ isActive }) =>
-                    `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+                    `hover:text-gray-200 ${
+                      isActive ? "font-bold" : "font-normal"
+                    }`
                   }
                 >
                   🎟️ Penyewaan
@@ -105,10 +127,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link
-              to="#kontak"
-              className="hover:text-gray-200 font-normal"
-            >
+            <Link to="#kontak" className="hover:text-gray-200 font-normal">
               Kontak
             </Link>
           </li>
