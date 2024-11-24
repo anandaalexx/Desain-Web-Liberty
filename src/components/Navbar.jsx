@@ -30,6 +30,12 @@ const Navbar = () => {
     setIsLanguageOpen(!isLanguageOpen);
   };
 
+  const [activeMenu, setActiveMenu] = useState("home")
+
+  const handleMenuClick = (menu) => (
+    setActiveMenu(menu)
+  )
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full backdrop-blur-lg p-4 z-50 flex items-center justify-between justify font-poppins shadow-lg transition duration-300 ${
