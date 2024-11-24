@@ -1,163 +1,130 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react"; // Correct import of Swiper
+import { EffectCoverflow, Pagination, Navigation } from "swiper"; // Correct import of Swiper modules
+import "swiper/css"; // Swiper core styles
+import "swiper/css/effect-coverflow"; // Styles for EffectCoverflow
+import "swiper/css/pagination"; // Styles for Pagination
+import "swiper/css/navigation"; // Styles for Navigation
+import "swiper/swiper-bundle.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // FontAwesome import
 import {
   faChevronLeft,
   faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+  faQuoteLeft,
+} from "@fortawesome/free-solid-svg-icons"; // Icon imports
+
+// Your component code here
 
 // Component Ulasan
 const Ulasan = ({ name, review, imgSrc }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg w-full text-center">
-      <img
-        src={imgSrc}
-        alt={name}
-        className="w-16 h-16 rounded-full mx-auto mb-4"
-      />
-      <h3 className="text-xl font-bold mb-2">{name}</h3>
-      <p className="text-gray-600">{review}</p>
+    <div className="h-80 -mb-20 mt-12">
+      <div
+        className="bg-[#183262] p-6 rounded-lg shadow-xl border border-gray-200 w-80 text-center"
+        style={{ boxShadow: "4px 12px 0px rgba(242, 159, 5, 1.0)" }}
+      >
+        <img
+          src={imgSrc}
+          alt={name}
+          className="w-20 h-20 rounded-full mx-auto mt-[-4rem] mb-4"
+        />
+        <h3 className="text-lg font-semibold text-[#ffffff]">{name}</h3>
+        <FontAwesomeIcon icon={faQuoteLeft} color="#f29f05" className="my-2" />
+        <p className="text-[white] text-sm">{review}</p>
+      </div>
     </div>
   );
 };
 
-// Component UlasanSlider
+// Component Review
 const Review = () => {
   const ulasanData = [
     {
       name: "Lukman Kopling",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/1.jpg",
     },
     {
       name: "Mulyadi",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/2.jpg",
     },
     {
       name: "Saipul Masjid",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/3.jpg",
     },
     {
       name: "Joni Ikan",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/4.jpg",
     },
     {
       name: "Agus Bengkel",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/5.jpg",
     },
     {
       name: "Bagas Sayur",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
-      imgSrc: "https://via.placeholder.com/50",
+      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "https://randomuser.me/api/portraits/men/6.jpg",
     },
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [direction, setDirection] = useState("next");
-
-  const handlePrev = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setDirection("prev");
-      setTimeout(() => setIsAnimating(false), 300);
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? ulasanData.length - 1 : prevIndex - 1
-      );
-    }
-  };
-
-  const handleNext = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setDirection("next");
-      setTimeout(() => setIsAnimating(false), 300);
-      setCurrentIndex((prevIndex) =>
-        prevIndex === ulasanData.length - 1 ? 0 : prevIndex + 1
-      );
-    }
-  };
-
-  const getClassForIndex = (index) => {
-    const isCenter = index === currentIndex;
-    const isLeft =
-      index === (currentIndex === 0 ? ulasanData.length - 1 : currentIndex - 1);
-    const isRight =
-      index === (currentIndex === ulasanData.length - 1 ? 0 : currentIndex + 1);
-
-    const animationClass = isAnimating
-      ? direction === "next"
-        ? "animate-slide-left"
-        : "animate-slide-right"
-      : "";
-
-    if (isCenter) {
-      return `basis-1/2 flex-grow transform scale-105 transition-all duration-300 ${animationClass}`;
-    } else if (isLeft || isRight) {
-      return "basis-1/3 flex-grow transform scale-95 transition-all duration-300";
-    } else {
-      return "hidden";
-    }
-  };
 
   return (
     <div className="py-16">
       <div className="max-w-7xl mx-auto px-4 py-8 relative">
-        <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={handlePrev}
-            className="p-2 text-gray-700 hover:text-gray-900"
-          >
-            <FontAwesomeIcon icon={faChevronLeft} size="2x" />
-          </button>
-          <h2 className="text-6xl font-bold text-[rgba(24,50,98)] text-center">
+        {/* Title with arrows above it */}
+        <div className="relative">
+          <div className="flex justify-between absolute top-6 left-0 right-0 px-4">
+            {/* Panah kiri */}
+            <div className="slebew-prev hover: cursor-pointer">
+              <FontAwesomeIcon icon={faChevronLeft} size="lg" />
+            </div>
+            {/* Panah kanan */}
+            <div className="slebew-next hover: cursor-pointer">
+              <FontAwesomeIcon icon={faChevronRight} size="lg" />
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-bold text-[rgba(24,50,98)] text-center mb-4">
             Ulasan Pelanggan
           </h2>
-          <button
-            onClick={handleNext}
-            className="p-2 text-gray-700 hover:text-gray-900"
-          >
-            <FontAwesomeIcon icon={faChevronRight} size="2x" />
-          </button>
         </div>
 
-        <div className="flex justify-center gap-2 mt-4">
-          {ulasanData.map((_, index) => (
-            <span
-              key={index}
-              className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300  ${
-                index === currentIndex ? "bg-yellow-500" : "bg-gray-300"
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            />
+        {/* Swiper */}
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={2}
+          spaceBetween={-300}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+            slideShadows: false,
+          }}
+          navigation={{
+            nextEl: ".slebew-next",
+            prevEl: ".slebew-prev",
+            clickable: true,
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="swiper-container"
+        >
+          {ulasanData.map((ulasan, index) => (
+            <SwiperSlide key={index} className="flex justify-center">
+              <Ulasan
+                name={ulasan.name}
+                review={ulasan.review}
+                imgSrc={ulasan.imgSrc}
+              />
+            </SwiperSlide>
           ))}
-        </div>
-
-        <div className="flex items-center justify-center w-full mt-16">
-          <div className="flex w-full max-w-7xl gap-4">
-            {ulasanData.map((ulasan, index) => (
-              <div
-                key={index}
-                className={`${getClassForIndex(index)} flex justify-center`}
-              >
-                <Ulasan
-                  name={ulasan.name}
-                  review={ulasan.review}
-                  imgSrc={ulasan.imgSrc}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        </Swiper>
       </div>
     </div>
   );
