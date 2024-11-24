@@ -22,7 +22,7 @@ const QuickRes = () => {
 
   const renderTabContent = () => {
     return (
-      <div className="grid grid-cols-4 gap-4">
+      <div className="flex items-center justify-between mx-2">
         {/* Kolom 1: Date Picker */}
         <div className="flex items-center justify-center">
           <div className="relative">
@@ -34,26 +34,26 @@ const QuickRes = () => {
             />
             <button
               onClick={(e) => e.currentTarget.previousSibling.focus()} // Fokuskan ke DatePicker
-              className="flex items-center p-3 text-[rgba(24,50,98,1)] rounded-md focus:outline-none"
+              className="flex items-center p-1 -mt-6 text-[rgba(24,50,98,1)] rounded-md focus:outline-none cursor-pointer"
             >
               <FontAwesomeIcon
                 icon={faCalendarDays}
                 size="2x"
                 className="text-[rgba(24,50,98,1)] mr-2" // Menambahkan margin kanan untuk memberi jarak antara ikon dan teks
               />
-              <span className="text-lg">Pilih Tanggal</span>{" "}
+              <span className="text-lg mr-2">Pilih Tanggal</span>{" "}
               {/* Teks "Pilih Tanggal" */}
               <FontAwesomeIcon
                 icon={faChevronDown}
                 size="lg"
-                className="text-[rgba(24,50,98,1)] ml-2" // Menambahkan margin kiri untuk memberi jarak antara teks dan ikon chevron
+                className="text-[rgba(24,50,98,1)]" // Menambahkan margin kiri untuk memberi jarak antara teks dan ikon chevron
               />
             </button>
           </div>
         </div>
 
         {/* Kolom 2: Tanggal yang Dipilih */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center p-1 w-2/4 border-2 border-[rgba(24,50,98,1)] rounded-lg">
           <p className="text-[rgba(24,50,98,1)] font-normal">
             {startDate
               ? `Tanggal yang dipilih: ${startDate.toLocaleDateString()}`
@@ -61,15 +61,15 @@ const QuickRes = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-center">
-          <div className="h-3/4 border-l-2 border-[rgba(24,50,98,1)]"></div>
+        <div className="flex items-center justify-center ml-2">
+          <div className="h-full border-l-2 border-[rgba(24,50,98,1)]">ㅤ</div>
         </div>
 
         {/* Kolom 3: Tombol */}
         <div className="flex items-center justify-center">
           <button
             onClick={() => alert("Reservasi dilanjutkan")}
-            className="px-6 py-2 bg-[rgba(24,50,98,1)] text-white font-semibold rounded-md hover:bg-opacity-80"
+            className="px-6 py-2 w-full bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
           >
             Lanjutkan
           </button>

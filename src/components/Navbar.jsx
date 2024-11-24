@@ -144,7 +144,7 @@ const Navbar = () => {
               href="#reservasi"
               className={` text-white px-4 py-2 rounded-3xl transition duration-300 font-normal ${
                 isScrolled
-                  ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98, 0.5)]"
+                  ? "bg-white hover:bg-gray-300 text-[#183262]"
                   : "bg-[rgba(24,50,98,0.8)] hover:bg-[rgba(24,50,98,0.5)]"
               }`}
             >

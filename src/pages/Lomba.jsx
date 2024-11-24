@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Lomba() {
   return (
     <div>
-      <h1>Lomba</h1>
+      <Navbar />
     </div>
   );
 }
