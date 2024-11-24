@@ -98,7 +98,7 @@ const Navbar = () => {
               </li>
               <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg">
                 <NavLink
-                  to="/restoran"
+                  to="/resto"
                   className={({ isActive }) =>
                     `hover:text-gray-200 ${
                       isActive ? "font-bold" : "font-normal"
