@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/-nav-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [language, setLanguage] = useState("English");
@@ -12,7 +12,7 @@ const Navbar = () => {
   // Handle scroll event to change navbar background on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 750);
+      setIsScrolled(window.scrollY > 700);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full backdrop-blur-lg p-4 z-50 flex items-center justify-between font-poppins shadow-lg transition duration-300 ${
+      className={`fixed top-0 left-0 w-full backdrop-blur-lg p-4 z-50 flex items-center justify-between justify font-poppins shadow-lg transition duration-300 ${
         isScrolled
           ? "bg-[rgba(24,50,98,0.8)] text-white"
           : "bg-transparent text-white"
@@ -40,17 +40,25 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between w-full">
         {/* Logo */}
-        <Link to="/">
-          <img src={Logo} alt="Liberty Logo" className="w-24 h-auto" />
-        </Link>
+        <div href="#beranda">
+          <img src={Logo} alt="/" className="w-32 h-auto" />
+        </div>
 
         {/* Navigation Menu */}
-        <ul className="flex space-x-6 text-white font-semibold mx-4">
+        <ul className="flex space-x-6 text-white text-lg font-semibold mx-4 my-2">
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+                `hover:text-gray-200 ${
+                  isActive
+                    ? "font-bold"
+                    : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+             after:content-[''] after:absolute after:left-0 after:right-0 
+             after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+             after:scale-x-0 after:origin-center after:transition-transform 
+             after:duration-200 hover:after:scale-x-50`
+                }`
               }
             >
               Beranda
@@ -58,7 +66,13 @@ const Navbar = () => {
           </li>
 
           <li className="relative group">
-            <button className="flex items-center hover:text-blue-500 font-light transition-colors duration-300">
+            <button
+              className="flex items-center font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+             after:content-[''] after:absolute after:left-0 after:right-0 
+             after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+             after:scale-x-0 after:origin-center after:transition-transform 
+             after:duration-200 hover:after:scale-x-50"
+            >
               Fasilitas
             </button>
 
@@ -119,7 +133,15 @@ const Navbar = () => {
             <NavLink
               to="/lomba"
               className={({ isActive }) =>
-                `hover:text-gray-200 ${isActive ? "font-bold" : "font-normal"}`
+                `hover:text-gray-200 ${
+                  isActive
+                    ? "font-bold"
+                    : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+             after:content-[''] after:absolute after:left-0 after:right-0 
+             after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+             after:scale-x-0 after:origin-center after:transition-transform 
+             after:duration-200 hover:after:scale-x-50`
+                }`
               }
             >
               Lomba
@@ -127,27 +149,39 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link to="#kontak" className="hover:text-gray-200 font-normal">
+            <a
+              href="#kontak"
+              className={`hover:text-gray-200 ${
+                activeMenu === "kontak"
+                  ? "font-bold"
+                  : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+             after:content-[''] after:absolute after:left-0 after:right-0 
+             after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+             after:scale-x-0 after:origin-center after:transition-transform 
+             after:duration-200 hover:after:scale-x-50`
+              }`}
+              onClick={() => handleMenuClick("kontak")}
+            >
               Kontak
-            </Link>
+              </a>
           </li>
 
           <li>
-            <Link
-              to="#reservasi"
-              className={`text-white font-light px-4 py-2 rounded-3xl transition duration-300 ${
+            <a
+              href="#reservasi"
+              className={` text-white px-4 py-2 rounded-3xl transition duration-300 font-normal ${
                 isScrolled
-                  ? "bg-white hover:bg-gray-300 text-[rgba(24,50,98,0.5)]"
+                  ? "bg-white hover:bg-gray-300 text-[#183262]"
                   : "bg-[rgba(24,50,98,0.8)] hover:bg-[rgba(24,50,98,0.5)]"
               }`}
             >
               Reservasi
-            </Link>
+              </a>
           </li>
         </ul>
 
         {/* Language Dropdown */}
-        <div className="relative group">
+        <div className="relative group mt-3">
           <button
             onClick={toggleLanguageDropdown}
             className="flex items-center text-white font-semibold"
@@ -176,7 +210,7 @@ const Navbar = () => {
 
           {/* Dropdown Menu */}
           {isLanguageOpen && (
-            <ul className="absolute text-white right-0 mt-2 bg-[rgba(24,50,98,0.2)] backdrop-blur-lg shadow-lg rounded-lg">
+            <ul className="absolute left-0 right-0 text-white mt-2 w-[135px] bg-[rgba(24,50,98,0.2)] backdrop-blur-lg shadow-lg mx-auto rounded-lg">
               <li
                 onClick={() => handleLanguageChange("English")}
                 className="px-4 py-2 hover:bg-[rgba(24,50,98,0.8)] cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg flex items-center"
