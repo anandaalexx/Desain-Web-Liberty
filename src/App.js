@@ -7,9 +7,12 @@ import Restoran from "./pages/Restoran";
 import Parkir from "./pages/Parkiran";
 import Penyewaan from "./pages/Penyewaan";
 import FullGalleryPage from "./pages/FullGalleryPage";
+import ScrollTop from "./scroll/scrolltop";
+
 function App() {
   return (
     <div>
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<Beranda />} />
         <Route path="/lomba" element={<Lomba />} />

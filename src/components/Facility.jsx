@@ -2,6 +2,7 @@ import React from "react";
 import Kolam from "../assets/Kolam-Pemancingan.png";
 import Sewa from "../assets/Penyewaan-Alat.png";
 import Resto from "../assets/Restoran.png";
+import { Link } from "react-router-dom";
 
 const Facility = () => {
   const fasilitas = [
@@ -9,25 +10,25 @@ const Facility = () => {
       title: "Kolam Pemancingan",
       image: Kolam,
       description: "Nikmati pengalaman memancing yang menyenangkan.",
-      link: "#",
+      link: "/kolam",
     },
     {
       title: "Restoran",
       image: Resto,
       description: "Makan di restoran kami dengan pemandangan indah.",
-      link: "#",
+      link: "resto",
     },
     {
       title: "Parkiran",
       image: Kolam,
       description: "Parkir luas dan nyaman untuk kendaraan Anda.",
-      link: "#",
+      link: "parkir",
     },
     {
       title: "Penyewaan Alat",
       image: Sewa,
       description: "Tersedia alat pancing untuk disewa.",
-      link: "#",
+      link: "/penyewaan",
     },
   ];
 
@@ -62,12 +63,12 @@ const Facility = () => {
                 </div>
 
                 <div className="absolute inset-0 bg-[rgba(24,50,98)] bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                  <a
-                    href={item.link}
+                  <Link
+                    to={item.link}
                     className="text-white font-semibold px-4 py-2 bg-[rgba(24,50,98, 0.8)] rounded hover:bg-[rgba(24,50,98)] transition duration-300"
                   >
                     Selengkapnya
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

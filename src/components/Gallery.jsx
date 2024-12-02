@@ -11,7 +11,7 @@ const Gallery = () => {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/9aNxuytikIM?autoplay=1&mute=1&loop=1&playlist=9aNxuytikIM"
+              src="https://www.youtube.com/embed/UqHWDP4-Bg0?autoplay=1&mute=1&loop=1&playlist=UqHWDP4-Bg0"
               title="Video 1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
