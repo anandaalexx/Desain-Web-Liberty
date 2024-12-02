@@ -11,7 +11,7 @@ import Funfact from "../components/Funfact";
 
 function Beranda() {
   return (
-    <div>
+    <div id="beranda">
       <Navbar />
       <Hero />
       <About />

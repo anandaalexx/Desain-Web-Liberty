@@ -1,32 +1,28 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react"; // Correct import of Swiper
-import { EffectCoverflow, Pagination, Navigation } from "swiper"; // Correct import of Swiper modules
-import "swiper/css"; // Swiper core styles
-import "swiper/css/effect-coverflow"; // Styles for EffectCoverflow
-import "swiper/css/pagination"; // Styles for Pagination
-import "swiper/css/navigation"; // Styles for Navigation
-import "swiper/swiper-bundle.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // FontAwesome import
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
   faQuoteLeft,
-} from "@fortawesome/free-solid-svg-icons"; // Icon imports
+} from "@fortawesome/free-solid-svg-icons";
 
-// Your component code here
-
-// Component Ulasan
 const Ulasan = ({ name, review, imgSrc }) => {
   return (
     <div className="h-80 -mb-20 mt-12">
       <div
-        className="bg-[#183262] p-6 rounded-lg shadow-xl border border-gray-200 w-80 text-center"
+        className="bg-[#183262] p-6 rounded-lg shadow-xl border border-gray-200 w-80 text-center transform hover:scale-105 transition-all duration-300 ease-in-out"
         style={{ boxShadow: "4px 12px 0px rgba(242, 159, 5, 1.0)" }}
       >
         <img
           src={imgSrc}
           alt={name}
-          className="w-20 h-20 rounded-full mx-auto mt-[-4rem] mb-4"
+          className="w-20 h-20 rounded-full mx-auto mt-[-4rem] mb-4 border-4 border-white transform hover:scale-110 transition-all duration-300 ease-in-out"
         />
         <h3 className="text-lg font-semibold text-[#ffffff]">{name}</h3>
         <FontAwesomeIcon icon={faQuoteLeft} color="#f29f05" className="my-2" />
@@ -36,7 +32,6 @@ const Ulasan = ({ name, review, imgSrc }) => {
   );
 };
 
-// Component Review
 const Review = () => {
   const ulasanData = [
     {
@@ -72,27 +67,26 @@ const Review = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div
+      className="py-16 bg-gradient-to-r"
+      style={{ backgroundColor: "rgba(226, 239, 247, 0.3)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 py-8 relative">
-        {/* Title with arrows above it */}
         <div className="relative">
           <div className="flex justify-between absolute top-6 left-0 right-0 px-4">
-            {/* Panah kiri */}
-            <div className="slebew-prev hover: cursor-pointer">
+            <div className="slebew-prev cursor-pointer p-3 bg-white rounded-full shadow-lg hover:bg-[rgba(24,50,98)] hover:text-white">
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
             </div>
-            {/* Panah kanan */}
-            <div className="slebew-next hover: cursor-pointer">
+            <div className="slebew-next cursor-pointer p-3 bg-white rounded-full shadow-lg hover:bg-[rgba(24,50,98)] hover:text-white">
               <FontAwesomeIcon icon={faChevronRight} size="lg" />
             </div>
           </div>
 
-          <h2 className="text-4xl font-bold text-[rgba(24,50,98)] text-center mb-4">
+          <h2 className="text-5xl font-bold text-[rgba(24,50,98)] text-center mb-6">
             Ulasan Pelanggan
           </h2>
         </div>
 
-        {/* Swiper */}
         <Swiper
           effect={"coverflow"}
           grabCursor={true}

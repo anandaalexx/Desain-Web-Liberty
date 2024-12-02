@@ -2,6 +2,7 @@ import React from "react";
 import BG from "../assets/hero.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
@@ -20,13 +21,15 @@ const Hero = () => {
           <p className="font-normal text-xl text-white mb-6">
             Nikmati pengalaman terbaik bersama kami.
           </p>
-          <a
-            href="#reservasi"
-            className="bg-[rgba(24,50,98,0.8)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] text-white font-normal px-6 py-3 rounded-md hover:bg-[rgba(24,50,98,0.5)] transition duration-300"
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="bg-[rgba(24,50,98,0.8)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] text-white font-normal px-6 py-3 rounded-md hover:bg-[rgba(24,50,98,0.5)] transition duration-300 cursor-pointer"
           >
             Jelajahi Lebih Lanjut{" "}
             <FontAwesomeIcon icon={faArrowDown} className="ml-2" />
-          </a>
+          </Link>
         </div>
         <div className="absolute bottom-10 left-1 border rounded-full border-white text-white px-4 py-1 ml-32">
           <p className="text-sm">

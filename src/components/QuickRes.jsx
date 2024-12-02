@@ -11,6 +11,7 @@ import BG from "../assets/bg-qr.png";
 const QuickRes = () => {
   const [startDate, setStartDate] = useState(null);
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [isLombaDropdownOpen, setIsLombaDropdownOpen] = useState(false);
 
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -20,62 +21,126 @@ const QuickRes = () => {
     setActiveTab(tab);
   };
 
+  const toggleLombaDropdown = () => {
+    setIsLombaDropdownOpen(!isLombaDropdownOpen);
+  };
+
   const renderTabContent = () => {
-    return (
-      <div className="flex items-center justify-between mx-2">
-        {/* Kolom 1: Date Picker */}
-        <div className="flex items-center justify-center">
-          <div className="relative">
-            <DatePicker
-              selected={startDate}
-              onChange={handleDateChange}
-              className="absolute opacity-0" // Sembunyikan input bawaan
-              placeholderText="Pilih tanggal"
-            />
+    if (activeTab === "dashboard") {
+      return (
+        <div className="flex items-center justify-between mx-2">
+          {/* Kolom 1: Date Picker */}
+          <div className="flex items-center justify-center">
+            <div className="relative">
+              <DatePicker
+                selected={startDate}
+                onChange={handleDateChange}
+                className="absolute opacity-0" // Sembunyikan input bawaan
+                placeholderText="Pilih tanggal"
+              />
+              <button
+                onClick={(e) => e.currentTarget.previousSibling.focus()} // Fokuskan ke DatePicker
+                className="flex items-center p-1 -mt-6 text-[rgba(24,50,98,1)] rounded-md focus:outline-none cursor-pointer"
+              >
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  size="2x"
+                  className="text-[rgba(24,50,98,1)] mr-2"
+                />
+                <span className="text-lg mr-2">Pilih Tanggal</span>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  size="lg"
+                  className="text-[rgba(24,50,98,1)]"
+                />
+              </button>
+            </div>
+          </div>
+
+          {/* Kolom 2: Tanggal yang Dipilih */}
+          <div className="flex items-center justify-center p-1 w-2/4 border-2 border-[rgba(24,50,98,1)] rounded-lg">
+            <p className="text-[rgba(24,50,98,1)] font-normal">
+              {startDate
+                ? `Tanggal yang dipilih: ${startDate.toLocaleDateString()}`
+                : "Tanggal belum dipilih"}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center ml-2">
+            <div className="h-full border-l-2 border-[rgba(24,50,98,1)]">
+              ㅤ
+            </div>
+          </div>
+
+          {/* Kolom 3: Tombol */}
+          <div className="flex items-center justify-center">
             <button
-              onClick={(e) => e.currentTarget.previousSibling.focus()} // Fokuskan ke DatePicker
-              className="flex items-center p-1 -mt-6 text-[rgba(24,50,98,1)] rounded-md focus:outline-none cursor-pointer"
+              onClick={() => alert("Reservasi dilanjutkan")}
+              className="px-6 py-2 w-full bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
             >
-              <FontAwesomeIcon
-                icon={faCalendarDays}
-                size="2x"
-                className="text-[rgba(24,50,98,1)] mr-2" // Menambahkan margin kanan untuk memberi jarak antara ikon dan teks
-              />
-              <span className="text-lg mr-2">Pilih Tanggal</span>{" "}
-              {/* Teks "Pilih Tanggal" */}
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="lg"
-                className="text-[rgba(24,50,98,1)]" // Menambahkan margin kiri untuk memberi jarak antara teks dan ikon chevron
-              />
+              Lanjutkan
             </button>
           </div>
         </div>
+      );
+    } else if (activeTab === "settings") {
+      // Konten untuk tab Daftar Lomba
+      return (
+        <div className="flex items-center justify-between mx-2">
+          {/* Kolom 1: Tombol Dropdown */}
+          <div className="flex items-center justify-center">
+            <button
+              onClick={toggleLombaDropdown}
+              className="px-6 py-2 w-full bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
+            >
+              {isLombaDropdownOpen
+                ? "Tutup Daftar Lomba"
+                : "Lihat Daftar Lomba"}
+            </button>
+          </div>
 
-        {/* Kolom 2: Tanggal yang Dipilih */}
-        <div className="flex items-center justify-center p-1 w-2/4 border-2 border-[rgba(24,50,98,1)] rounded-lg">
-          <p className="text-[rgba(24,50,98,1)] font-normal">
-            {startDate
-              ? `Tanggal yang dipilih: ${startDate.toLocaleDateString()}`
-              : "Tanggal belum dipilih"}
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center ml-2">
-          <div className="h-full border-l-2 border-[rgba(24,50,98,1)]">ㅤ</div>
-        </div>
-
-        {/* Kolom 3: Tombol */}
-        <div className="flex items-center justify-center">
-          <button
-            onClick={() => alert("Reservasi dilanjutkan")}
-            className="px-6 py-2 w-full bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
+          {/* Kolom 2: Daftar Lomba (Dropdown) */}
+          <div
+            className={`relative w-full mt-4 ${
+              isLombaDropdownOpen ? "block" : "hidden"
+            }`}
           >
-            Lanjutkan
-          </button>
+            <h3 className="text-[rgba(24,50,98,1)] text-xl font-semibold mb-4">
+              Daftar Lomba Memancing
+            </h3>
+            <ul className="list-disc pl-6">
+              <li className="mb-2">
+                Lomba 1: Lomba Memancing Ikan Layur - Tanggal: 10 Desember 2024
+              </li>
+              <li className="mb-2">
+                Lomba 2: Lomba Memancing Ikan Tenggiri - Tanggal: 15 Desember
+                2024
+              </li>
+              <li className="mb-2">
+                Lomba 3: Lomba Memancing Ikan Kakap - Tanggal: 20 Desember 2024
+              </li>
+              {/* Tambahkan lomba lain sesuai kebutuhan */}
+            </ul>
+          </div>
+
+          <div className="flex items-center justify-center ml-2">
+            <div className="h-full border-l-2 border-[rgba(24,50,98,1)]">
+              ㅤ
+            </div>
+          </div>
+
+          {/* Kolom 3: Tombol */}
+          <div className="flex items-center justify-center">
+            <button
+              onClick={() => alert("Pendaftaran lomba dilanjutkan")}
+              className="px-6 py-2 w-full bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
+            >
+              Daftar Lomba
+            </button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
 
   return (

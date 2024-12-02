@@ -10,7 +10,7 @@ import QR from "../assets/qr-barulagi.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1D366D] text-white py-10 px-4">
+    <footer id="footer" className="bg-[#1D366D] text-white py-10 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Kolom 1: QR Code */}
         <div className="flex justify-center md:justify-start">

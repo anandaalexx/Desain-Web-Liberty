@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/-nav-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -30,11 +31,9 @@ const Navbar = () => {
     setIsLanguageOpen(!isLanguageOpen);
   };
 
-  const [activeMenu, setActiveMenu] = useState("home")
+  const [activeMenu, setActiveMenu] = useState("home");
 
-  const handleMenuClick = (menu) => (
-    setActiveMenu(menu)
-  )
+  const handleMenuClick = (menu) => setActiveMenu(menu);
 
   return (
     <nav
@@ -46,17 +45,17 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between w-full">
         {/* Logo */}
-        <div href="#beranda">
-          <img src={Logo} alt="/" className="w-32 h-auto" />
-        </div>
+        <Link to="beranda" smooth={true} duration={500}>
+          <img src={Logo} alt="/" className="w-32 h-auto cursor-pointer" />
+        </Link>
 
         {/* Navigation Menu */}
-        <ul className="flex space-x-6 text-white text-lg font-semibold mx-4 my-2">
+        <ul className="flex space-x-6 text-white text-lg font-semibold mx-4 my-2 cursor-pointer">
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `hover:text-gray-200 ${
+                `${
                   isActive
                     ? "font-bold"
                     : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
@@ -71,8 +70,11 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <li className="relative group">
-            <button
+          <li>
+            <Link
+              to="fasilitas"
+              smooth={true}
+              duration={500}
               className="flex items-center font-normal relative hover:text-[rgba(24,50,98,0.5)] 
              after:content-[''] after:absolute after:left-0 after:right-0 
              after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
@@ -80,66 +82,14 @@ const Navbar = () => {
              after:duration-200 hover:after:scale-x-50"
             >
               Fasilitas
-            </button>
-
-            {/* Dropdown Content */}
-            <ul className="absolute mt-2 w-52 bg-[rgba(24,50,98,0.5)] backdrop-blur-lg text-white shadow-lg rounded-lg py-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg transition-colors duration-200">
-                <NavLink
-                  to="/kolam"
-                  className={({ isActive }) =>
-                    `hover:text-gray-200 ${
-                      isActive ? "font-bold" : "font-normal"
-                    }`
-                  }
-                >
-                  🎣 Kolam
-                </NavLink>
-              </li>
-              <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg">
-                <NavLink
-                  to="/resto"
-                  className={({ isActive }) =>
-                    `hover:text-gray-200 ${
-                      isActive ? "font-bold" : "font-normal"
-                    }`
-                  }
-                >
-                  🍽️ Resto
-                </NavLink>
-              </li>
-              <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer border-b border-b-blue-400 last:border-b-0 rounded-lg transition-colors duration-200">
-                <NavLink
-                  to="/parkir"
-                  className={({ isActive }) =>
-                    `hover:text-gray-200 ${
-                      isActive ? "font-bold" : "font-normal"
-                    }`
-                  }
-                >
-                  🚗 Parkir
-                </NavLink>
-              </li>
-              <li className="px-6 py-3 hover:bg-blue-800 font-medium cursor-pointer rounded-lg transition-colors duration-200">
-                <NavLink
-                  to="/penyewaan"
-                  className={({ isActive }) =>
-                    `hover:text-gray-200 ${
-                      isActive ? "font-bold" : "font-normal"
-                    }`
-                  }
-                >
-                  🎟️ Penyewaan
-                </NavLink>
-              </li>
-            </ul>
+            </Link>
           </li>
 
           <li>
             <NavLink
               to="/lomba"
               className={({ isActive }) =>
-                `hover:text-gray-200 ${
+                `${
                   isActive
                     ? "font-bold"
                     : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
@@ -155,9 +105,11 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a
-              href="#kontak"
-              className={`hover:text-gray-200 ${
+            <Link
+              to="footer"
+              smooth={true}
+              duration={700}
+              className={`${
                 activeMenu === "kontak"
                   ? "font-bold"
                   : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
@@ -166,10 +118,9 @@ const Navbar = () => {
              after:scale-x-0 after:origin-center after:transition-transform 
              after:duration-200 hover:after:scale-x-50`
               }`}
-              onClick={() => handleMenuClick("kontak")}
             >
               Kontak
-              </a>
+            </Link>
           </li>
 
           <li>
@@ -178,11 +129,11 @@ const Navbar = () => {
               className={` text-white px-4 py-2 rounded-3xl transition duration-300 font-normal ${
                 isScrolled
                   ? "bg-white hover:bg-gray-300 text-[#183262]"
-                  : "bg-[rgba(24,50,98,0.8)] hover:bg-[rgba(24,50,98,0.5)]"
+                  : "bg-[rgba(24,50,98,1.0)] hover:bg-[rgba(24,50,98,1.0)]"
               }`}
             >
               Reservasi
-              </a>
+            </a>
           </li>
         </ul>
 

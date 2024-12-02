@@ -6,6 +6,7 @@ import Kolam from "./pages/KolamPemancingan";
 import Restoran from "./pages/Restoran";
 import Parkir from "./pages/Parkiran";
 import Penyewaan from "./pages/Penyewaan";
+import FullGalleryPage from "./pages/FullGalleryPage";
 function App() {
   return (
     <div>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/resto" element={<Restoran />} />
         <Route path="/parkir" element={<Parkir />} />
         <Route path="/penyewaan" element={<Penyewaan />} />
+        <Route path="/gallery" element={<FullGalleryPage />} />
       </Routes>
     </div>
   );
