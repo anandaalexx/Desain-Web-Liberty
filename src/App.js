@@ -8,6 +8,7 @@ import Parkir from "./pages/Parkiran";
 import Penyewaan from "./pages/Penyewaan";
 import FullGalleryPage from "./pages/FullGalleryPage";
 import ScrollTop from "./scroll/scrolltop";
+import Reservasi from "./pages/Reservasi";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/parkir" element={<Parkir />} />
         <Route path="/penyewaan" element={<Penyewaan />} />
         <Route path="/gallery" element={<FullGalleryPage />} />
+        <Route path="/reservasi" element={<Reservasi/>} />
       </Routes>
     </div>
   );
