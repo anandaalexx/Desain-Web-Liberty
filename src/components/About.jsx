@@ -10,10 +10,10 @@ import {
 
 const About = React.forwardRef((props, ref) => {
   return (
-    <section id="about">
+    <section id="about" ref={ref}>
       <div className="max-w-7xl mx-auto mt-12 px-4 py-12">
         <div className="text-center mb-16">
-          <h2 className="text-6xl font-bold text-[rgba(24,50,98)]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[rgba(24,50,98)]">
             Tentang Kami
           </h2>
         </div>
@@ -21,12 +21,16 @@ const About = React.forwardRef((props, ref) => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex-1 border-t border-[rgba(24,50,98)]"></div>
           <div className="mx-4">
-            <img src={Logo} alt="Logo" className="w-29 h-29 rounded-full" />
+            <img
+              src={Logo}
+              alt="Logo"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-60 md:h-60 rounded-full"
+            />
           </div>
           <div className="flex-1 border-t border-[rgba(24,50,98)]"></div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 text-center items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {[
             {
               icon: faMap,
@@ -53,12 +57,15 @@ const About = React.forwardRef((props, ref) => {
               text: "Tersedia lomba pemancingan rutin dengan hadiah menarik, yang menambah keseruan bagi para pemancing yang ingin berkompetisi.",
             },
           ].map((item, index) => (
-            <div key={index} className="border rounded-lg p-4">
+            <div
+              key={index}
+              className="border rounded-lg p-6 flex flex-col items-center"
+            >
               <FontAwesomeIcon
                 icon={item.icon}
-                className="text-5xl mb-2 text-[rgba(24,50,98)]"
+                className="text-4xl sm:text-5xl mb-4 text-[rgba(24,50,98)]"
               />
-              <p className="text-gray-700">{item.text}</p>
+              <p className="text-gray-700 text-sm sm:text-base">{item.text}</p>
             </div>
           ))}
         </div>

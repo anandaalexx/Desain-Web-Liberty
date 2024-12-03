@@ -73,7 +73,7 @@ const Review = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-8 relative">
         <div className="relative">
-          <div className="flex justify-between absolute top-6 left-0 right-0 px-4">
+          <div className="flex justify-between absolute top-6 left-0 right-0 px-4 md:px-16">
             <div className="slebew-prev cursor-pointer p-3 bg-white rounded-full shadow-lg hover:bg-[rgba(24,50,98)] hover:text-white">
               <FontAwesomeIcon icon={faChevronLeft} size="lg" />
             </div>
@@ -82,7 +82,7 @@ const Review = () => {
             </div>
           </div>
 
-          <h2 className="text-5xl font-bold text-[rgba(24,50,98)] text-center mb-6">
+          <h2 className="text-2xl sm:text-6xl font-bold text-[rgba(24,50,98)] text-center mb-6">
             Ulasan Pelanggan
           </h2>
         </div>
@@ -93,7 +93,11 @@ const Review = () => {
           centeredSlides={true}
           loop={true}
           slidesPerView={2}
-          spaceBetween={-300}
+          spaceBetween={-100}
+          breakpoints={{
+            640: { slidesPerView: 1.5, spaceBetween: -120 },
+            1024: { slidesPerView: 2, spaceBetween: -200 },
+          }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,

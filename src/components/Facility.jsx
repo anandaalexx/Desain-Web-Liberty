@@ -39,11 +39,11 @@ const Facility = () => {
         className="py-16"
       >
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <h2 className="text-center text-6xl font-bold text-[rgba(24,50,98)] mb-12">
+          <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold text-[rgba(24,50,98)] mb-12">
             Fasilitas
           </h2>
 
-          <div className="grid grid-cols-4 gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {fasilitas.map((item, index) => (
               <div
                 key={index}
@@ -52,14 +52,16 @@ const Facility = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 object-cover group-hover:opacity-75 transition duration-300"
+                  className="w-full h-48 sm:h-60 md:h-48 object-cover group-hover:opacity-75 transition duration-300"
                 />
 
                 <div className="p-4">
-                  <h3 className="text-xl font-semibold text-[rgba(24,50,98)] mb-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[rgba(24,50,98)] mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
 
                 <div className="absolute inset-0 bg-[rgba(24,50,98)] bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">

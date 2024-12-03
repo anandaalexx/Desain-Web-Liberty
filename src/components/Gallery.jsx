@@ -5,9 +5,9 @@ const Gallery = () => {
   return (
     <div className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 py-8 text-left">
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Video 1 */}
-          <div className="col-span-8">
+          <div className="col-span-1 md:col-span-8">
             <iframe
               width="100%"
               height="100%"
@@ -16,15 +16,17 @@ const Gallery = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-[520px] object-cover rounded-lg"
+              className="w-full h-[320px] sm:h-[400px] md:h-[520px] object-cover rounded-lg"
             />
           </div>
-          <div className="flex flex-col col-span-4 justify-center">
+
+          {/* Text and Button */}
+          <div className="flex flex-col col-span-1 md:col-span-4 justify-center">
             <div>
-              <h2 className="text-5xl font-bold text-[rgba(24,50,98)] mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#030406] mb-4">
                 Dari Galeri
               </h2>
-              <p className="text-lg text-[rgba(24,50,98)] mb-10">
+              <p className="text-base sm:text-lg md:text-xl text-[rgba(24,50,98)] mb-10">
                 Tangkapan besar, pemandangan indah, semuanya ada di galeri kami!
               </p>
             </div>
