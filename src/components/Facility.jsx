@@ -10,7 +10,7 @@ const Facility = () => {
       title: "Kolam Pemancingan",
       image: Kolam,
       description: "Nikmati pengalaman memancing yang menyenangkan.",
-      link: "/kolam",
+      link: "kolam",
     },
     {
       title: "Restoran",
@@ -19,16 +19,16 @@ const Facility = () => {
       link: "resto",
     },
     {
-      title: "Parkiran",
-      image: Kolam,
-      description: "Parkir luas dan nyaman untuk kendaraan Anda.",
-      link: "parkir",
-    },
-    {
       title: "Penyewaan Alat",
       image: Sewa,
       description: "Tersedia alat pancing untuk disewa.",
-      link: "/penyewaan",
+      link: "penyewaan",
+    },
+    {
+      title: "Lain-Lain",
+      image: Kolam,
+      description: "Parkir luas dan nyaman untuk kendaraan Anda.",
+      link: "lain-lain",
     },
   ];
 

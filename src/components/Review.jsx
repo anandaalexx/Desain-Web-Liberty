@@ -36,32 +36,38 @@ const Review = () => {
   const ulasanData = [
     {
       name: "Lukman Kopling",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Pelayanannya sangat memuaskan, fasilitasnya lengkap, dan tempatnya sangat nyaman. Pasti akan kembali lagi ke sini!",
       imgSrc: "https://randomuser.me/api/portraits/men/1.jpg",
     },
     {
       name: "Mulyadi",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Sangat merekomendasikan tempat ini, stafnya ramah dan sangat membantu. Pengalaman yang luar biasa!",
       imgSrc: "https://randomuser.me/api/portraits/men/2.jpg",
     },
     {
       name: "Saipul Masjid",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Suasananya begitu tenang dan nyaman. Saya sangat terkesan dengan kebersihan dan pelayanan yang diberikan.",
       imgSrc: "https://randomuser.me/api/portraits/men/3.jpg",
     },
     {
       name: "Joni Ikan",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Harganya terjangkau, tetapi kualitas yang diberikan sungguh luar biasa. Sangat direkomendasikan untuk keluarga!",
       imgSrc: "https://randomuser.me/api/portraits/men/4.jpg",
     },
     {
       name: "Agus Bengkel",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Saya tidak menyangka akan mendapatkan pengalaman sebaik ini. Terima kasih atas pelayanannya!",
       imgSrc: "https://randomuser.me/api/portraits/men/5.jpg",
     },
     {
       name: "Bagas Sayur",
-      review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      review:
+        "Tempat yang cocok untuk bersantai dan menikmati waktu luang. Pasti akan merekomendasikan kepada teman-teman!",
       imgSrc: "https://randomuser.me/api/portraits/men/6.jpg",
     },
   ];

@@ -9,12 +9,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom"; // Import useLocation
 
 const Navbar = () => {
   const [language, setLanguage] = useState("English");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation(); // Move useLocation to the top-level of the component
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,9 +53,16 @@ const Navbar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const navbarBgColor =
+    location.pathname === "/profile"
+      ? "bg-[rgba(24,50,98,0.8)]"
+      : isScrolled
+      ? "bg-[rgba(24,50,98,0.8)] text-white"
+      : "bg-transparent text-white";
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full backdrop-blur-lg p-4 z-50 flex items-center justify-between justify font-poppins shadow-lg transition duration-300 ${
+      className={`fixed top-0 left-0 w-full backdrop-blur-lg p-4 z-50 flex items-center justify-between font-poppins shadow-lg transition duration-300 ${
         isScrolled
           ? "bg-[rgba(24,50,98,0.8)] text-white"
           : "bg-transparent text-white"
@@ -74,7 +83,7 @@ const Navbar = () => {
         </button>
 
         {/* Navigation Menu (Desktop) */}
-        <ul className="hidden md:flex space-x-6  text-lg font-semibold mx-4 my-2 cursor-pointer">
+        <ul className="hidden md:flex space-x-6 text-white text-lg font-semibold mx-4 my-2 cursor-pointer">
           <li>
             <NavLink
               to="/"
@@ -94,18 +103,37 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <Link
-              to="fasilitas"
-              smooth={true}
-              duration={500}
-              className="flex items-center font-normal relative hover:text-[rgba(24,50,98,0.5)] 
-             after:content-[''] after:absolute after:left-0 after:right-0 
-             after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
-             after:scale-x-0 after:origin-center after:transition-transform 
-             after:duration-200 hover:after:scale-x-50"
-            >
-              Fasilitas
-            </Link>
+            {location.pathname === "/" ? (
+              <Link
+                to="fasilitas"
+                smooth={true}
+                duration={500}
+                className="flex items-center font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+      after:content-[''] after:absolute after:left-0 after:right-0 
+      after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+      after:scale-x-0 after:origin-center after:transition-transform 
+      after:duration-200 hover:after:scale-x-50"
+              >
+                Fasilitas
+              </Link>
+            ) : (
+              <NavLink
+                to="/kolam"
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "font-bold"
+                      : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+        after:content-[''] after:absolute after:left-0 after:right-0 
+        after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+        after:scale-x-0 after:origin-center after:transition-transform 
+        after:duration-200 hover:after:scale-x-50`
+                  }`
+                }
+              >
+                Fasilitas
+              </NavLink>
+            )}
           </li>
           <li>
             <NavLink
@@ -141,11 +169,11 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="#reservasi"
-              className={` text-white px-4 py-2 rounded-3xl transition duration-300 font-normal ${
+              href="reservasi"
+              className={`px-4 py-2 rounded-3xl transition duration-300 font-normal ${
                 isScrolled
                   ? "bg-white hover:bg-gray-300 text-[#183262]"
-                  : "bg-[rgba(24,50,98,1.0)] hover:bg-[rgba(24,50,98,1.0)]"
+                  : "bg-[rgba(24,50,98,1.0)] hover:bg-[rgba(24,50,98,0.8)]"
               }`}
             >
               Reservasi
@@ -154,7 +182,7 @@ const Navbar = () => {
         </ul>
 
         {/* Language Dropdown (Desktop) */}
-        <div className="relative hidden md:block">
+        <div className="relative hidden mt-4 md:block">
           <button
             onClick={toggleLanguageDropdown}
             className="flex items-center text-white font-semibold"
@@ -223,14 +251,37 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <Link
-                to="fasilitas"
-                smooth={true}
-                duration={500}
-                onClick={toggleSidebar}
-              >
-                Fasilitas
-              </Link>
+              {location.pathname === "/" ? (
+                <Link
+                  to="fasilitas"
+                  smooth={true}
+                  duration={500}
+                  className="flex items-center font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+      after:content-[''] after:absolute after:left-0 after:right-0 
+      after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+      after:scale-x-0 after:origin-center after:transition-transform 
+      after:duration-200 hover:after:scale-x-50"
+                >
+                  Fasilitas
+                </Link>
+              ) : (
+                <NavLink
+                  to="/kolam"
+                  className={({ isActive }) =>
+                    `${
+                      isActive
+                        ? "font-bold"
+                        : `font-normal relative hover:text-[rgba(24,50,98,0.5)] 
+        after:content-[''] after:absolute after:left-0 after:right-0 
+        after:bottom-[-2px] after:h-[2px] after:bg-[rgba(24,50,98,0.5)] 
+        after:scale-x-0 after:origin-center after:transition-transform 
+        after:duration-200 hover:after:scale-x-50`
+                    }`
+                  }
+                >
+                  Fasilitas
+                </NavLink>
+              )}
             </li>
             <li>
               <NavLink to="/lomba" onClick={toggleSidebar}>
@@ -249,12 +300,9 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#reservasi"
-                className={` text-white px-4 py-2 rounded-3xl transition duration-300 font-normal ${
-                  isScrolled
-                    ? "bg-white hover:bg-gray-300 text-[#183262]"
-                    : "bg-[rgba(24,50,98,1.0)] hover:bg-[#183262]"
-                }`}
+                href="reservasi"
+                className="px-4 py-2 bg-white text-[#183262] rounded-3xl text-center"
+                onClick={toggleSidebar}
               >
                 Reservasi
               </a>
@@ -262,7 +310,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={toggleLanguageDropdown}
-                className="flex items-center mt-4 font-semibold w-full justify-between"
+                className="flex items-center font-semibold w-full justify-between"
               >
                 <div className="flex items-center">
                   <FontAwesomeIcon icon={faGlobe} className="mr-2" />

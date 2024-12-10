@@ -6,7 +6,10 @@ import {
   faWhatsapp,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { faUsersBetweenLines, faStar } from "@fortawesome/free-solid-svg-icons";
+
 import QR from "../assets/qr-barulagi.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -76,10 +79,22 @@ const Footer = () => {
           <div className="w-full h-px bg-gray-400 my-6"></div>
 
           {/* Kontak */}
-          <h3 className="font-semibold text-3xl mb-3">Kontak</h3>
-          <div className="flex items-center justify-center md:justify-start space-x-3">
+          <h3 className="font-semibold text-3xl mb-3">
+            Kontak & Profil Pengembang
+          </h3>
+          <div className="flex items-center justify-center md:justify-start space-x-6">
             <FontAwesomeIcon icon={faWhatsapp} className="text-3xl" />
             <span className="text-xl">+6285859407774</span>
+            <Link to="/profile">
+              <FontAwesomeIcon
+                icon={faUsersBetweenLines}
+                className="text-3xl"
+              />
+              <span className="text-xl ">
+                {" "}
+                Kelompok 8 <FontAwesomeIcon icon={faStar} className="text-xl" />
+              </span>
+            </Link>
           </div>
         </div>
       </div>

@@ -9,8 +9,8 @@ const FacilityNav = () => {
   const tabs = [
     { id: "kolam", label: "Kolam Pemancingan" },
     { id: "resto", label: "Resto" },
-    { id: "parkir", label: "Parkiran" },
     { id: "penyewaan", label: "Penyewaan Alat Pancing" },
+    { id: "lain-lain", label: "Lain-Lain" },
   ];
 
   // Update activeTab berdasarkan route sekarang
@@ -31,15 +31,19 @@ const FacilityNav = () => {
       {/* Tab Navigation */}
       <div className="mb-4 border-b">
         <ul
-          className="flex flex-wrap justify-center -mb-px text-sm font-medium text-center"
+          className="flex flex-wrap justify-center sm:justify-start sm:flex-row flex-col -mb-px text-sm font-medium text-center"
           role="tablist"
         >
           {tabs.map((tab) => (
-            <li key={tab.id} className="flex-1 me-2" role="presentation">
+            <li
+              key={tab.id}
+              className="sm:flex-1 w-full sm:w-auto mb-2 sm:mb-0"
+              role="presentation"
+            >
               <button
-                className={`inline-block p-4 rounded-t-lg ${
+                className={`w-full sm:w-auto inline-block p-4 rounded-t-lg ${
                   activeTab === tab.id
-                    ? "text-[#F29F05] border-b-2 border-[#F29F05]"
+                    ? "text-[#F29F05] border-b-2 border-[#F29F05] font-bold"
                     : "text-[#183262] hover:text-gray-600"
                 }`}
                 onClick={() => handleTabClick(tab.id)}

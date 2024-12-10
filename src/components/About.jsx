@@ -6,6 +6,8 @@ import {
   faFish,
   faUser,
   faTrophy,
+  faScrewdriverWrench,
+  faSeedling,
 } from "@fortawesome/free-solid-svg-icons";
 
 const About = React.forwardRef((props, ref) => {
@@ -49,12 +51,12 @@ const About = React.forwardRef((props, ref) => {
               text: "Tersedia lomba pemancingan rutin dengan hadiah menarik, yang menambah keseruan bagi para pemancing yang ingin berkompetisi.",
             },
             {
-              icon: faTrophy,
-              text: "Tersedia lomba pemancingan rutin dengan hadiah menarik, yang menambah keseruan bagi para pemancing yang ingin berkompetisi.",
+              icon: faScrewdriverWrench,
+              text: "Kami menyediakan berbagai fasilitas seperti tempat istirahat dan kantin yang menyajikan makanan serta minuman segar untuk melengkapi pengalaman memancing Anda.",
             },
             {
-              icon: faTrophy,
-              text: "Tersedia lomba pemancingan rutin dengan hadiah menarik, yang menambah keseruan bagi para pemancing yang ingin berkompetisi.",
+              icon: faSeedling,
+              text: "Tempat pemancingan kami dirancang dengan prinsip keberlanjutan, menjaga keasrian alam sekitar sambil menciptakan ekosistem yang sehat untuk ikan dan lingkungan.",
             },
           ].map((item, index) => (
             <div

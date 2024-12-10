@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +12,11 @@ import BG from "../assets/bg-qr.png";
 const QuickRes = () => {
   const [startDate, setStartDate] = useState(null);
   const [activeTab, setActiveTab] = useState("dashboard");
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate("/reservasi", { state: { selectedDate: startDate } });
+  };
 
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -30,7 +36,7 @@ const QuickRes = () => {
               <DatePicker
                 selected={startDate}
                 onChange={handleDateChange}
-                className="absolute opacity-0" // Sembunyikan input bawaan
+                className="absolute opacity-0"
                 placeholderText="Pilih tanggal"
               />
               <button
@@ -64,7 +70,7 @@ const QuickRes = () => {
           {/* Kolom 3: Tombol */}
           <div className="flex items-center justify-center w-full sm:w-auto">
             <button
-              onClick={() => alert("Reservasi dilanjutkan")}
+              onClick={handleContinue}
               className="px-6 py-2 w-full sm:w-auto bg-[rgba(24,50,98,1)] text-white font-semibold rounded-xl hover:bg-opacity-80"
             >
               Lanjutkan
